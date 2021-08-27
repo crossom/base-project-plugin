@@ -1,28 +1,28 @@
 {
-	"name": "base-project-compass-plugin",
+	"name": "base-project-symbiosis-plugin",
 	"version": "0.0.2",
 	"main": "index.js",
 	"types": "index.d.ts",
 	"license": "Apache-2.0",
 	"author": "Techmmunity",
-	"description": "Base Project To A Compass Plugin",
-	"homepage": "https://github.com/techmmunity/base-project-compass-plugin#readme",
+	"description": "Base Project To A Symbiosis Plugin",
+	"homepage": "https://github.com/techmmunity/base-project-symbiosis-plugin#readme",
 	"bugs": {
-		"url": "https://github.com/techmmunity/base-project-compass-plugin/issues"
+		"url": "https://github.com/techmmunity/base-project-symbiosis-plugin/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/techmmunity/base-project-compass-plugin.git"
+		"url": "git+https://github.com/techmmunity/base-project-symbiosis-plugin.git"
 	},
 	"keywords": [
-		"techmmunity-compass"
+		"techmmunity-symbiosis"
 	],
 	"peerDependencies": {
-		"@techmmunity/compass": "^0.0.1",
+		"@techmmunity/symbiosis": "^0.0.1",
 		"reflect-metadata": "^0.1.13"
 	},
 	"devDependencies": {
-		"@techmmunity/compass": "^0.0.1",
+		"@techmmunity/symbiosis": "^0.0.1",
 		"@techmmunity/eslint-config": "^4.0.0",
 		"@types/jest": "^27.0.1",
 		"@typescript-eslint/eslint-plugin": "^4.29.3",

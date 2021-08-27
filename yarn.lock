@@ -570,9 +570,9 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@techmmunity/compass@^0.0.1":
+"@techmmunity/symbiosis@^0.0.1":
   version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@techmmunity/compass/-/compass-0.0.1.tgz#f45d1804bc59d24a4dcb67f57f91c8df27ed4792"
+  resolved "https://registry.yarnpkg.com/@techmmunity/symbiosis/-/symbiosis-0.0.1.tgz#f45d1804bc59d24a4dcb67f57f91c8df27ed4792"
   integrity sha512-3nVXYv/j9/1db5LWT2V8hVHy8oKa4k8libxEi7l0Q3+8xb8OzvGbQU+1hGa9xICuV1allBXpNAzwZUCMfuNY/Q==
   dependencies:
     change-case "^4.1.2"
