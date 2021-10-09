@@ -1,7 +1,8 @@
 import { BaseConnectionOptions, Connection } from "@techmmunity/symbiosis";
+import type { CustomClass } from "@techmmunity/symbiosis/lib/entity-manager/types/metadata-type";
 import { ExampleRepository } from "../repository";
-import { ColumnExtraMetadata } from "../types/column-extra-metadata";
-import { EntityExtraMetadata } from "../types/entity-extra-metadata";
+import type { ColumnExtraMetadata } from "../types/column-extra-metadata";
+import type { EntityExtraMetadata } from "../types/entity-extra-metadata";
 
 /**
  * Example type:
@@ -29,11 +30,11 @@ export class ExampleConnection extends Connection<
 		 */
 	}
 
-	public getRepository<Entity>(entity: Entity) {
+	public getRepository<Entity>(entity: CustomClass) {
 		return new ExampleRepository(
 			this.connectionInstance,
 			this.entityManager,
-			entity,
+			entity as Entity,
 		);
 	}
 }
