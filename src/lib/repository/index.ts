@@ -7,6 +7,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import {
+	EntityManager,
 	FindConditions,
 	FindOneOptions,
 	FindOptions,
@@ -21,12 +22,13 @@ export class ExampleRepository<
 	EntityExtraMetadata,
 	ColumnExtraMetadata,
 > extends Repository<Entity, EntityExtraMetadata, ColumnExtraMetadata> {
-	/**
-	 * // TODO Remove this after method implementation
-	 */
-	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-	//@ts-ignore
-	public constructor(private readonly _entity: Entity) {}
+	public constructor(
+		private readonly connectionInstance: any, // Replace this for the instance type of the database connection
+		entityManager: EntityManager<EntityExtraMetadata, ColumnExtraMetadata>,
+		entity: Entity,
+	) {
+		super(entityManager, entity);
+	}
 
 	public save(
 		_data: Array<Partial<Entity>> | Partial<Entity>,
