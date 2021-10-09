@@ -7,6 +7,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import {
+	BaseQueryOptions,
+	ClassType,
 	EntityManager,
 	FindConditions,
 	FindOneOptions,
@@ -15,7 +17,6 @@ import {
 	SymbiosisError,
 	SymbiosisErrorCodeEnum,
 } from "@techmmunity/symbiosis";
-import { BaseQueryOptions } from "../../../../symbiosis/dist/lib/repository/queries/types/query-options";
 
 export class ExampleRepository<
 	Entity,
@@ -31,7 +32,7 @@ export class ExampleRepository<
 	}
 
 	public save(
-		_data: Array<Partial<Entity>> | Partial<Entity>,
+		_data: Array<ClassType<Entity>> | ClassType<Entity>,
 		_options?: BaseQueryOptions,
 	): Promise<Array<Entity> | Entity> {
 		// Delete this after the method is implemented
@@ -68,7 +69,7 @@ export class ExampleRepository<
 	}
 
 	public insert(
-		_data: Array<Partial<Entity>> | Partial<Entity>,
+		_data: Array<ClassType<Entity>> | ClassType<Entity>,
 		_options?: BaseQueryOptions,
 	): Promise<Array<Entity> | Entity> {
 		// Delete this after the method is implemented
@@ -106,7 +107,7 @@ export class ExampleRepository<
 
 	public update(
 		_conditions: FindConditions<Entity>,
-		_data: Partial<Entity>,
+		_data: ClassType<Entity>,
 		_options?: BaseQueryOptions,
 	): Promise<Array<Entity> | Entity> {
 		// Delete this after the method is implemented
@@ -146,7 +147,7 @@ export class ExampleRepository<
 
 	public upsert(
 		_conditions: FindConditions<Entity>,
-		_data: Partial<Entity>,
+		_data: ClassType<Entity>,
 		_options?: BaseQueryOptions,
 	): Promise<Array<Entity> | Entity> {
 		// Delete this after the method is implemented
