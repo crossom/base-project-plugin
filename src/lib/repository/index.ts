@@ -5,6 +5,7 @@
  */
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 
 import {
 	BaseQueryOptions,
@@ -13,31 +14,38 @@ import {
 	FindConditions,
 	FindOneOptions,
 	FindOptions,
-	Repository,
+	BaseRepository,
 	SymbiosisError,
-	SymbiosisErrorCodeEnum,
+	Logger,
+	SaveData,
 } from "@techmmunity/symbiosis";
+import { IndexExtraMetadata } from "../types/index-extra-metadata";
 
-export class ExampleRepository<
+export class Repository<
 	Entity,
 	EntityExtraMetadata,
 	ColumnExtraMetadata,
-> extends Repository<Entity, EntityExtraMetadata, ColumnExtraMetadata> {
+> extends BaseRepository<Entity, EntityExtraMetadata, ColumnExtraMetadata> {
 	public constructor(
 		private readonly connectionInstance: any, // Replace this for the instance type of the database connection
-		entityManager: EntityManager<EntityExtraMetadata, ColumnExtraMetadata>,
+		entityManager: EntityManager<
+			EntityExtraMetadata,
+			ColumnExtraMetadata,
+			IndexExtraMetadata
+		>,
+		logger: Logger,
 		entity: Entity,
 	) {
-		super(entityManager, entity);
+		super(entityManager, logger, entity);
 	}
 
-	public save(
-		_data: Array<ClassType<Entity>> | ClassType<Entity>,
-		_options?: BaseQueryOptions,
-	): Promise<Array<Entity> | Entity> {
+	public save<Result = Array<Entity> | Entity>(
+		data: SaveData<Entity>,
+		options?: BaseQueryOptions,
+	): Promise<Result> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
-			code: SymbiosisErrorCodeEnum.NOT_IMPLEMENTED,
+			code: "NOT_IMPLEMENTED",
 			origin: "SYMBIOSIS",
 			details: ["Method `save` is not implemented yet by this plugin"],
 			message: "Method not implemented",
@@ -47,8 +55,8 @@ export class ExampleRepository<
 		 * // TODO Uncomment this when method implemented
 		 *
 		 * const dataInDatabaseFormat = this.beforeSave({
-		 * 	data: _data,
-		 * 	options: _options,
+		 * 	data: data,
+		 * 	options: options,
 		 * });
 		 *
 		 * // ...
@@ -63,18 +71,18 @@ export class ExampleRepository<
 		 *
 		 * return this.afterSave({
 		 * 	data: dataFromDatabase,
-		 * 	options: _options,
+		 * 	options: options,
 		 * });
 		 */
 	}
 
-	public insert(
-		_data: Array<ClassType<Entity>> | ClassType<Entity>,
-		_options?: BaseQueryOptions,
-	): Promise<Array<Entity> | Entity> {
+	public insert<Result = Array<Entity> | Entity>(
+		data: SaveData<Entity>,
+		options?: BaseQueryOptions,
+	): Promise<Result> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
-			code: SymbiosisErrorCodeEnum.NOT_IMPLEMENTED,
+			code: "NOT_IMPLEMENTED",
 			origin: "SYMBIOSIS",
 			details: ["Method `insert` is not implemented yet by this plugin"],
 			message: "Method not implemented",
@@ -84,8 +92,8 @@ export class ExampleRepository<
 		 * // TODO Uncomment this when method implemented
 		 *
 		 * const dataInDatabaseFormat = this.beforeInsert({
-		 * 	data: _data,
-		 * 	options: _options,
+		 * 	data: data,
+		 * 	options: options,
 		 * });
 		 *
 		 * // ...
@@ -100,19 +108,19 @@ export class ExampleRepository<
 		 *
 		 * return this.afterInsert({
 		 * 	data: dataFromDatabase,
-		 * 	options: _options,
+		 * 	options: options,
 		 * });
 		 */
 	}
 
-	public update(
-		_conditions: FindConditions<Entity>,
-		_data: ClassType<Entity>,
-		_options?: BaseQueryOptions,
-	): Promise<Array<Entity> | Entity> {
+	public update<Result = Array<Entity> | Entity>(
+		conditions: FindConditions<Entity>,
+		data: ClassType<Entity>,
+		options?: BaseQueryOptions,
+	): Promise<Result> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
-			code: SymbiosisErrorCodeEnum.NOT_IMPLEMENTED,
+			code: "NOT_IMPLEMENTED",
 			origin: "SYMBIOSIS",
 			details: ["Method `update` is not implemented yet by this plugin"],
 			message: "Method not implemented",
@@ -122,9 +130,9 @@ export class ExampleRepository<
 		 * // TODO Uncomment this when method implemented
 		 *
 		 * const dataInDatabaseFormat = this.beforeUpdate({
-		 * 	conditions: _conditions,
-		 * 	data: _data,
-		 * 	options: _options,
+		 * 	conditions: conditions,
+		 * 	data: data,
+		 * 	options: options,
 		 * });
 		 *
 		 * // ...
@@ -139,20 +147,20 @@ export class ExampleRepository<
 		 *
 		 * return this.afterUpdate({
 		 * 	data: dataFromDatabase,
-		 * 	conditions: _conditions,
-		 * 	options: _options,
+		 * 	conditions: conditions,
+		 * 	options: options,
 		 * });
 		 */
 	}
 
-	public upsert(
-		_conditions: FindConditions<Entity>,
-		_data: ClassType<Entity>,
-		_options?: BaseQueryOptions,
-	): Promise<Array<Entity> | Entity> {
+	public upsert<Result = Array<Entity> | Entity>(
+		conditions: FindConditions<Entity>,
+		data: ClassType<Entity>,
+		options?: BaseQueryOptions,
+	): Promise<Result> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
-			code: SymbiosisErrorCodeEnum.NOT_IMPLEMENTED,
+			code: "NOT_IMPLEMENTED",
 			origin: "SYMBIOSIS",
 			details: ["Method `upsert` is not implemented yet by this plugin"],
 			message: "Method not implemented",
@@ -162,9 +170,9 @@ export class ExampleRepository<
 		 * // TODO Uncomment this when method implemented
 		 *
 		 * const dataInDatabaseFormat = this.beforeUpsert({
-		 * 	conditions: _conditions,
-		 * 	data: _data,
-		 * 	options: _options,
+		 * 	conditions: conditions,
+		 * 	data: data,
+		 * 	options: options,
 		 * });
 		 *
 		 * // ...
@@ -179,19 +187,19 @@ export class ExampleRepository<
 		 *
 		 * return this.afterUpsert({
 		 * 	data: dataFromDatabase,
-		 * 	conditions: _conditions,
-		 * 	options: _options,
+		 * 	conditions: conditions,
+		 * 	options: options,
 		 * });
 		 */
 	}
 
 	public find(
-		_conditions: FindOptions<Entity>,
-		_options?: BaseQueryOptions,
+		conditions: FindOptions<Entity>,
+		options?: BaseQueryOptions,
 	): Promise<Array<Entity>> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
-			code: SymbiosisErrorCodeEnum.NOT_IMPLEMENTED,
+			code: "NOT_IMPLEMENTED",
 			origin: "SYMBIOSIS",
 			details: ["Method `find` is not implemented yet by this plugin"],
 			message: "Method not implemented",
@@ -201,8 +209,8 @@ export class ExampleRepository<
 		 * // TODO Uncomment this when method implemented
 		 *
 		 * const dataInDatabaseFormat = this.beforeFind({
-		 * 	conditions: _conditions,
-		 * 	options: _options,
+		 * 	conditions: conditions,
+		 * 	options: options,
 		 * });
 		 *
 		 * // ...
@@ -217,19 +225,19 @@ export class ExampleRepository<
 		 *
 		 * return this.afterFind({
 		 * 	data: dataFromDatabase,
-		 * 	conditions: _conditions,
-		 * 	options: _options,
+		 * 	conditions: conditions,
+		 * 	options: options,
 		 * });
 		 */
 	}
 
 	public findOne(
-		_conditions: FindOneOptions<Entity>,
-		_options?: BaseQueryOptions,
+		conditions: FindOneOptions<Entity>,
+		options?: BaseQueryOptions,
 	): Promise<Entity> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
-			code: SymbiosisErrorCodeEnum.NOT_IMPLEMENTED,
+			code: "NOT_IMPLEMENTED",
 			origin: "SYMBIOSIS",
 			details: ["Method `findOne` is not implemented yet by this plugin"],
 			message: "Method not implemented",
@@ -239,8 +247,8 @@ export class ExampleRepository<
 		 * // TODO Uncomment this when method implemented
 		 *
 		 * const dataInDatabaseFormat = this.beforeFindOne({
-		 * 	conditions: _conditions,
-		 * 	options: _options,
+		 * 	conditions: conditions,
+		 * 	options: options,
 		 * });
 		 *
 		 * // ...
@@ -255,19 +263,19 @@ export class ExampleRepository<
 		 *
 		 * return this.afterFindOne({
 		 * 	data: dataFromDatabase,
-		 * 	conditions: _conditions,
-		 * 	options: _options,
+		 * 	conditions: conditions,
+		 * 	options: options,
 		 * });
 		 */
 	}
 
 	public delete(
-		_where: FindConditions<Entity>,
-		_options?: BaseQueryOptions,
+		where: FindConditions<Entity>,
+		options?: BaseQueryOptions,
 	): Promise<number> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
-			code: SymbiosisErrorCodeEnum.NOT_IMPLEMENTED,
+			code: "NOT_IMPLEMENTED",
 			origin: "SYMBIOSIS",
 			details: ["Method `delete` is not implemented yet by this plugin"],
 			message: "Method not implemented",
@@ -277,8 +285,8 @@ export class ExampleRepository<
 		 * // TODO Uncomment this when method implemented
 		 *
 		 * const dataInDatabaseFormat = this.beforeDelete({
-		 * 	where: _where,
-		 * 	options: _options,
+		 * 	where: where,
+		 * 	options: options,
 		 * });
 		 *
 		 * // ...
@@ -293,19 +301,19 @@ export class ExampleRepository<
 		 *
 		 * return this.afterDelete({
 		 * 	data: dataFromDatabase,
-		 * 	where: _where,
-		 * 	options: _options,
+		 * 	where: where,
+		 * 	options: options,
 		 * });
 		 */
 	}
 
 	public softDelete(
-		_where: FindConditions<Entity>,
-		_options?: BaseQueryOptions,
+		where: FindConditions<Entity>,
+		options?: BaseQueryOptions,
 	): Promise<number> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
-			code: SymbiosisErrorCodeEnum.NOT_IMPLEMENTED,
+			code: "NOT_IMPLEMENTED",
 			origin: "SYMBIOSIS",
 			details: ["Method `softDelete` is not implemented yet by this plugin"],
 			message: "Method not implemented",
@@ -315,8 +323,8 @@ export class ExampleRepository<
 		 * // TODO Uncomment this when method implemented
 		 *
 		 * const dataInDatabaseFormat = this.beforeSoftDelete({
-		 * 	where: _where,
-		 * 	options: _options,
+		 * 	where: where,
+		 * 	options: options,
 		 * });
 		 *
 		 * // ...
@@ -331,19 +339,19 @@ export class ExampleRepository<
 		 *
 		 * return this.afterSoftDelete({
 		 * 	data: dataFromDatabase,
-		 * 	where: _where,
-		 * 	options: _options,
+		 * 	where: where,
+		 * 	options: options,
 		 * });
 		 */
 	}
 
 	public recover(
-		_where: FindConditions<Entity>,
-		_options?: BaseQueryOptions,
+		where: FindConditions<Entity>,
+		options?: BaseQueryOptions,
 	): Promise<number> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
-			code: SymbiosisErrorCodeEnum.NOT_IMPLEMENTED,
+			code: "NOT_IMPLEMENTED",
 			origin: "SYMBIOSIS",
 			details: ["Method `recover` is not implemented yet by this plugin"],
 			message: "Method not implemented",
@@ -353,8 +361,8 @@ export class ExampleRepository<
 		 * // TODO Uncomment this when method implemented
 		 *
 		 * const dataInDatabaseFormat = this.beforeRecover({
-		 * 	where: _where,
-		 * 	options: _options,
+		 * 	where: where,
+		 * 	options: options,
 		 * });
 		 *
 		 * // ...
@@ -369,19 +377,19 @@ export class ExampleRepository<
 		 *
 		 * return this.afterRecover({
 		 * 	data: dataFromDatabase,
-		 * 	where: _where,
-		 * 	options: _options,
+		 * 	where: where,
+		 * 	options: options,
 		 * });
 		 */
 	}
 
 	public count(
-		_where: FindConditions<Entity>,
-		_options?: BaseQueryOptions,
+		where: FindConditions<Entity>,
+		options?: BaseQueryOptions,
 	): Promise<number> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
-			code: SymbiosisErrorCodeEnum.NOT_IMPLEMENTED,
+			code: "NOT_IMPLEMENTED",
 			origin: "SYMBIOSIS",
 			details: ["Method `count` is not implemented yet by this plugin"],
 			message: "Method not implemented",
@@ -391,8 +399,8 @@ export class ExampleRepository<
 		 * // TODO Uncomment this when method implemented
 		 *
 		 * const dataInDatabaseFormat = this.beforeCount({
-		 * 	where: _where,
-		 * 	options: _options,
+		 * 	where: where,
+		 * 	options: options,
 		 * });
 		 *
 		 * // ...
@@ -407,19 +415,19 @@ export class ExampleRepository<
 		 *
 		 * return this.afterCount({
 		 * 	data: dataFromDatabase,
-		 * 	where: _where,
-		 * 	options: _options,
+		 * 	where: where,
+		 * 	options: options,
 		 * });
 		 */
 	}
 
 	public performativeCount(
-		_where: FindConditions<Entity>,
-		_options?: BaseQueryOptions,
+		where: FindConditions<Entity>,
+		options?: BaseQueryOptions,
 	): Promise<number> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
-			code: SymbiosisErrorCodeEnum.NOT_IMPLEMENTED,
+			code: "NOT_IMPLEMENTED",
 			origin: "SYMBIOSIS",
 			details: [
 				"Method `performativeCount` is not implemented yet by this plugin",
@@ -431,8 +439,8 @@ export class ExampleRepository<
 		 * // TODO Uncomment this when method implemented
 		 *
 		 * const dataInDatabaseFormat = this.beforePerformativeCount({
-		 * 	where: _where,
-		 * 	options: _options,
+		 * 	where: where,
+		 * 	options: options,
 		 * });
 		 *
 		 * // ...
@@ -447,8 +455,8 @@ export class ExampleRepository<
 		 *
 		 * return this.afterPerformativeCount({
 		 * 	data: dataFromDatabase,
-		 * 	where: _where,
-		 * 	options: _options,
+		 * 	where: where,
+		 * 	options: options,
 		 * });
 		 */
 	}

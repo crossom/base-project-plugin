@@ -1,27 +1,46 @@
-import { BaseConnectionOptions, Connection } from "@techmmunity/symbiosis";
+import { BaseConnection } from "@techmmunity/symbiosis";
 import type { CustomClass } from "@techmmunity/symbiosis/lib/entity-manager/types/metadata-type";
-import { ExampleRepository } from "../repository";
+import { Repository } from "../repository";
 import type { ColumnExtraMetadata } from "../types/column-extra-metadata";
+import type { ExampleConnectionOptions } from "../types/connection-options";
 import type { EntityExtraMetadata } from "../types/entity-extra-metadata";
+import type { IndexExtraMetadata } from "../types/index-extra-metadata";
+
+/**
+ * Example type:
+ * DynamoDBClient
+ *
+ * Obs: Remove this comment and this type
+ */
+export type LibClientType = any;
 
 /**
  * Example type:
  * DynamoDBClientConfig
+ *
+ * Obs: Remove this comment and this type
  */
-export type LibToConnectToDbOptionsType = any;
+export type LibClientConfigType = any;
 
-export class ExampleConnection extends Connection<
+export class ExampleConnection extends BaseConnection<
+	LibClientConfigType,
 	EntityExtraMetadata,
-	ColumnExtraMetadata
+	ColumnExtraMetadata,
+	IndexExtraMetadata
 > {
-	private readonly connectionInstance: LibToConnectToDbOptionsType;
+	private _connectionInstance: LibClientType;
 
-	public constructor(
-		options: BaseConnectionOptions<LibToConnectToDbOptionsType>,
-	) {
+	public get connectionInstance() {
+		return this._connectionInstance;
+	}
+
+	public constructor(options: ExampleConnectionOptions) {
 		super(options);
+	}
 
-		this.connectionInstance = {};
+	// eslint-disable-next-line require-await
+	public async connect() {
+		this._connectionInstance = {};
 		/*
 		 * Example:
 		 * this.connectionInstance = new DynamoDBClient(
@@ -31,9 +50,10 @@ export class ExampleConnection extends Connection<
 	}
 
 	public getRepository<Entity>(entity: CustomClass) {
-		return new ExampleRepository(
+		return new Repository(
 			this.connectionInstance,
 			this.entityManager,
+			this.logger,
 			entity as Entity,
 		);
 	}
