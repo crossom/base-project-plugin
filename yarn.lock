@@ -618,10 +618,10 @@
     eslint-plugin-sonarjs "^0.10.0"
     typescript "^4.2.4"
 
-"@techmmunity/symbiosis@^0.0.18":
-  version "0.0.18"
-  resolved "https://registry.yarnpkg.com/@techmmunity/symbiosis/-/symbiosis-0.0.18.tgz#806070c92033901f15f1a9bfd56e33aa2e58c241"
-  integrity sha512-ckaosAaZV9OTQv19HV2A0+JYRkaiEE2sftdukJKP8vNvDWZ1tV8jXSUghBcs3nBCNFYwUn7cTDUbUKNjZL+O2Q==
+"@techmmunity/symbiosis@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@techmmunity/symbiosis/-/symbiosis-0.0.20.tgz#0fd5e48b7b34073c67078b2e8d62ddd2c49dccf8"
+  integrity sha512-Zi/3bDdEX7Th2iU1EySy1sSOqPT/D5uLDn6A4d+4yRmv3oNYccqBsqi6FCTPaF4YYBW/g9Izi58qVH+xiblT1Q==
   dependencies:
     "@techmmunity/utils" "^1.1.0"
     change-case "^4.1.2"
