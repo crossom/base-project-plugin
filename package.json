@@ -25,12 +25,19 @@
 		"techmmunity-symbiosis"
 	],
 	"peerDependencies": {
+		"@techmmunity/symbiosis-cli": "^0.0.1",
 		"@techmmunity/symbiosis": "^0.0.20",
 		"reflect-metadata": "^0.1.13"
+	},
+	"peerDependenciesMeta": {
+		"@techmmunity/symbiosis-cli": {
+			"optional": true
+		}
 	},
 	"devDependencies": {
 		"@techmmunity/eslint-config": "^5.0.4",
 		"@techmmunity/symbiosis": "^0.0.20",
+		"@techmmunity/symbiosis-cli": "^0.0.1",
 		"@types/jest": "^27.0.1",
 		"@vercel/ncc": "^0.31.1",
 		"eslint": "^7.32.0",

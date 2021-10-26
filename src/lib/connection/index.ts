@@ -22,7 +22,7 @@ export type LibClientType = any;
  */
 export type LibClientConfigType = any;
 
-export class ExampleConnection extends BaseConnection<
+export class Connection extends BaseConnection<
 	LibClientConfigType,
 	EntityExtraMetadata,
 	ColumnExtraMetadata,
