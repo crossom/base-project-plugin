@@ -34,8 +34,8 @@ export class Connection extends BaseConnection<
 		return this._connectionInstance;
 	}
 
-	public constructor(options: ExampleConnectionOptions) {
-		super(options);
+	public constructor(options?: ExampleConnectionOptions) {
+		super("base-project-symbiosis-plugin", options);
 	}
 
 	// eslint-disable-next-line require-await
@@ -50,7 +50,7 @@ export class Connection extends BaseConnection<
 	}
 
 	public getRepository<Entity>(entity: CustomClass) {
-		return new Repository(
+		return new Repository<Entity>(
 			this.connectionInstance,
 			this.entityManager,
 			this.logger,

@@ -19,13 +19,11 @@ import {
 	Logger,
 	SaveData,
 } from "@techmmunity/symbiosis";
+import { ColumnExtraMetadata } from "../types/column-extra-metadata";
+import { EntityExtraMetadata } from "../types/entity-extra-metadata";
 import { IndexExtraMetadata } from "../types/index-extra-metadata";
 
-export class Repository<
-	Entity,
-	EntityExtraMetadata,
-	ColumnExtraMetadata,
-> extends BaseRepository<Entity, EntityExtraMetadata, ColumnExtraMetadata> {
+export class Repository<Entity> extends BaseRepository<Entity> {
 	public constructor(
 		private readonly connectionInstance: any, // Replace this for the instance type of the database connection
 		entityManager: EntityManager<

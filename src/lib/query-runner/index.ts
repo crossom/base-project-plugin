@@ -4,25 +4,32 @@
 import {
 	BaseQueryRunner,
 	CreateColumnParams,
+	CreateEntityParams,
+	CreateEnumParams,
 	CreateIndexParams,
-	CreateTableParams,
 } from "@techmmunity/symbiosis-cli";
 import { Connection } from "../connection";
 
 export class QueryRunner extends BaseQueryRunner<Connection> {
-	public constructor(connection: Connection) {
-		super(connection);
-	}
+	public readonly queries: Array<any>;
 
-	public async createTable(p: CreateTableParams) {
+	public createEntity(_p: CreateEntityParams): void {
 		throw new Error("Method not implemented.");
 	}
 
-	public async createIndex(p: CreateIndexParams) {
+	public createEnum(_p: CreateEnumParams): void {
 		throw new Error("Method not implemented.");
 	}
 
-	public async createColumn(p: CreateColumnParams) {
+	public createColumn(_p: CreateColumnParams) {
+		throw new Error("Method not implemented.");
+	}
+
+	public createIndex(_p: CreateIndexParams) {
+		throw new Error("Method not implemented.");
+	}
+
+	public run(): Promise<void> {
 		throw new Error("Method not implemented.");
 	}
 }

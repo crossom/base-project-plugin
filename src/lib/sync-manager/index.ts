@@ -1,13 +1,20 @@
-import { BaseSyncManager } from "@techmmunity/symbiosis-cli";
+/* eslint-disable sonarjs/no-duplicate-string */
+import {
+	BaseSyncManager,
+	CreateMigrationRecordParams,
+} from "@techmmunity/symbiosis-cli";
 import { Connection } from "../connection";
 
 export class SyncManager extends BaseSyncManager<Connection> {
-	public constructor(connection: Connection) {
-		super(connection);
+	public createMigrationsTable(): Promise<void> {
+		throw new Error("Method not implemented.");
 	}
 
-	// eslint-disable-next-line require-await
-	public async getExecutedMigrations() {
-		return [""];
+	public createMigrationRecord(_p: CreateMigrationRecordParams): Promise<void> {
+		throw new Error("Method not implemented.");
+	}
+
+	public getExecutedMigrations(): Promise<Array<string>> {
+		throw new Error("Method not implemented.");
 	}
 }

@@ -25,8 +25,8 @@
 		"techmmunity-symbiosis"
 	],
 	"peerDependencies": {
-		"@techmmunity/symbiosis-cli": "^0.0.1",
-		"@techmmunity/symbiosis": "^0.0.20",
+		"@techmmunity/symbiosis": "^0.0.25",
+		"@techmmunity/symbiosis-cli": "^0.0.4",
 		"reflect-metadata": "^0.1.13"
 	},
 	"peerDependenciesMeta": {
@@ -35,15 +35,15 @@
 		}
 	},
 	"devDependencies": {
-		"@techmmunity/eslint-config": "^5.0.4",
-		"@techmmunity/symbiosis": "^0.0.20",
-		"@techmmunity/symbiosis-cli": "^0.0.1",
+		"@techmmunity/eslint-config": "^5.1.2",
+		"@techmmunity/symbiosis": "^0.0.25",
+		"@techmmunity/symbiosis-cli": "^0.0.4",
 		"@types/jest": "^27.0.1",
 		"@vercel/ncc": "^0.31.1",
-		"eslint": "^7.32.0",
+		"eslint": "^8.1.0",
 		"husky": "^7.0.4",
 		"jest": "^27.3.1",
-		"lint-staged": "^11.2.3",
+		"lint-staged": "^11.2.6",
 		"prettier": "^2.3.2",
 		"reflect-metadata": "^0.1.13",
 		"ts-jest": "^27.0.7",
@@ -58,8 +58,9 @@
 		"build": "ncc build src/index.ts -o dist -s -m -e reflect-metadata",
 		"format": "eslint . --fix --quiet",
 		"lint": "eslint . --quiet",
-		"update-dependencies": "yarn upgrade-interactive --latest",
+		"upgrade-dependencies": "yarn upgrade-interactive --latest",
 		"husky:pre-commit": "tsc && lint-staged",
-		"lk": "yarn build && cp package.json dist/package.json && cd dist && yarn link && cd .."
+		"lk": "yarn build && cp package.json dist/package.json && cd dist && yarn link && cd ..",
+		"ulk": "yarn unlink && yarn lk"
 	}
 }

@@ -8,5 +8,7 @@ import { BaseConnectionOptions } from "@techmmunity/symbiosis";
  */
 export type DatabaseConfigType = any;
 
-export type ExampleConnectionOptions =
-	BaseConnectionOptions<DatabaseConfigType>;
+export type ExampleConnectionOptions = Omit<
+	BaseConnectionOptions<DatabaseConfigType>,
+	"plugin"
+>;
