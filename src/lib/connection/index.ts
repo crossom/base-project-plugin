@@ -44,7 +44,7 @@ export class Connection extends BaseConnection<
 		/*
 		 * Example:
 		 * this.connectionInstance = new DynamoDBClient(
-		 * 	options.databaseConnectionConfig || {},
+		 * 	this.options.databaseConnectionConfig || {},
 		 * );
 		 */
 	}
