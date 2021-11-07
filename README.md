@@ -35,44 +35,15 @@ This is a base project to plugin for [@techmmunity/symbiosis](https://github.com
 With yarn
 
 ```
-yarn add @techmmunity/symbiosis reflect-metadata @techmmunity/base-project-symbiosis-plugin
+yarn add @techmmunity/base-project-symbiosis-plugin
 ```
 
 With npm
 
 ```
-npm i --save @techmmunity/symbiosis reflect-metadata @techmmunity/base-project-symbiosis-plugin
+npm i --save @techmmunity/base-project-symbiosis-plugin
 ```
 
 ## Usage
 
-```ts
-import { Connection,Repository } from "@techmmunity/base-project-symbiosis-plugin";
-import { Entity } from "@techmmunity/symbiosis";
-
-@Entity()
-class FooEntity {
-	// ...
-}
-
-type FooRepository = Repository<FooEntity>
-
-const foo = async () => {
-	const connection = new Connection({
-		// Connection options
-		entities: [...],
-		databaseConfig: {
-			// Dynamodb connection config
-		}
-	});
-
-	await connection.connect();
-
-	const repository = connection.getRepository<FooEntity>(Entity);
-
-	repository.save(...)
-	repository.find(...)
-}
-
-foo();
-```
+Please, check [the docs](https://symbiosis.techmmunity.com.br) for more information.
