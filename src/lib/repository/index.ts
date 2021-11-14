@@ -37,6 +37,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 		super(entityManager, logger, entity);
 	}
 
+	/**
+	 * ## NOT IMPLEMENTED!
+	 */
 	public save<Result = Array<Entity> | Entity>(
 		data: SaveData<Entity>,
 		options?: BaseQueryOptions,
@@ -74,6 +77,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 		 */
 	}
 
+	/**
+	 * ## NOT IMPLEMENTED!
+	 */
 	public insert<Result = Array<Entity> | Entity>(
 		data: SaveData<Entity>,
 		options?: BaseQueryOptions,
@@ -111,6 +117,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 		 */
 	}
 
+	/**
+	 * ## NOT IMPLEMENTED!
+	 */
 	public update<Result = Array<Entity> | Entity>(
 		conditions: FindConditions<Entity>,
 		data: ClassType<Entity>,
@@ -151,6 +160,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 		 */
 	}
 
+	/**
+	 * ## NOT IMPLEMENTED!
+	 */
 	public upsert<Result = Array<Entity> | Entity>(
 		conditions: FindConditions<Entity>,
 		data: ClassType<Entity>,
@@ -191,6 +203,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 		 */
 	}
 
+	/**
+	 * ## NOT IMPLEMENTED!
+	 */
 	public find(
 		conditions: FindOptions<Entity>,
 		options?: BaseQueryOptions,
@@ -229,6 +244,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 		 */
 	}
 
+	/**
+	 * ## NOT IMPLEMENTED!
+	 */
 	public findOne(
 		conditions: FindOneOptions<Entity>,
 		options?: BaseQueryOptions,
@@ -267,6 +285,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 		 */
 	}
 
+	/**
+	 * ## NOT IMPLEMENTED!
+	 */
 	public delete(
 		where: FindConditions<Entity>,
 		options?: BaseQueryOptions,
@@ -305,6 +326,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 		 */
 	}
 
+	/**
+	 * ## NOT IMPLEMENTED!
+	 */
 	public softDelete(
 		where: FindConditions<Entity>,
 		options?: BaseQueryOptions,
@@ -343,6 +367,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 		 */
 	}
 
+	/**
+	 * ## NOT IMPLEMENTED!
+	 */
 	public recover(
 		where: FindConditions<Entity>,
 		options?: BaseQueryOptions,
@@ -381,6 +408,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 		 */
 	}
 
+	/**
+	 * ## NOT IMPLEMENTED!
+	 */
 	public count(
 		where: FindConditions<Entity>,
 		options?: BaseQueryOptions,
@@ -419,6 +449,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 		 */
 	}
 
+	/**
+	 * ## NOT IMPLEMENTED!
+	 */
 	public performativeCount(
 		where: FindConditions<Entity>,
 		options?: BaseQueryOptions,

@@ -49,6 +49,16 @@ export class Connection extends BaseConnection<
 		 */
 	}
 
+	// eslint-disable-next-line require-await
+	public async close() {
+		/*
+		 * Does something to close the connection, if needed.
+		 *
+		 * If the database don't require you to close the connection,
+		 * you can leave this empty
+		 */
+	}
+
 	public getRepository<Entity>(entity: CustomClass) {
 		return new Repository<Entity>(
 			this.connectionInstance,
