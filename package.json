@@ -38,7 +38,7 @@
 		"@techmmunity/eslint-config": "^5.1.2",
 		"@techmmunity/symbiosis": "^0.0.29",
 		"@techmmunity/symbiosis-cli": "^0.0.4",
-		"@types/jest": "^27.0.1",
+		"@types/jest": "^27.0.3",
 		"@vercel/ncc": "^0.31.1",
 		"eslint": "^8.2.0",
 		"husky": "^7.0.4",
