@@ -18,19 +18,15 @@ import {
 	SymbiosisError,
 	Logger,
 	SaveData,
+	ArraySaveData,
+	SingleSaveData,
 } from "@techmmunity/symbiosis";
-import { ColumnExtraMetadata } from "../types/column-extra-metadata";
-import { EntityExtraMetadata } from "../types/entity-extra-metadata";
-import { IndexExtraMetadata } from "../types/index-extra-metadata";
+import { ExtraMetadata } from "../types/extra-metadata";
 
 export class Repository<Entity> extends BaseRepository<Entity> {
 	public constructor(
 		private readonly connectionInstance: any, // Replace this for the instance type of the database connection
-		entityManager: EntityManager<
-			EntityExtraMetadata,
-			ColumnExtraMetadata,
-			IndexExtraMetadata
-		>,
+		entityManager: EntityManager<ExtraMetadata>,
 		logger: Logger,
 		entity: Entity,
 	) {
@@ -40,10 +36,18 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 	/**
 	 * ## NOT IMPLEMENTED!
 	 */
-	public save<Result = Array<Entity> | Entity>(
+	public save(
+		data: SingleSaveData<Entity>,
+		options?: BaseQueryOptions,
+	): Promise<Entity>;
+	public save(
+		data: ArraySaveData<Entity>,
+		options?: BaseQueryOptions,
+	): Promise<Array<Entity>>;
+	public save(
 		data: SaveData<Entity>,
 		options?: BaseQueryOptions,
-	): Promise<Result> {
+	): Promise<Array<Entity> | Entity> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
 			code: "NOT_IMPLEMENTED",
@@ -80,10 +84,18 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 	/**
 	 * ## NOT IMPLEMENTED!
 	 */
-	public insert<Result = Array<Entity> | Entity>(
+	public insert(
+		data: SingleSaveData<Entity>,
+		options?: BaseQueryOptions,
+	): Promise<Entity>;
+	public insert(
+		data: ArraySaveData<Entity>,
+		options?: BaseQueryOptions,
+	): Promise<Array<Entity>>;
+	public insert(
 		data: SaveData<Entity>,
 		options?: BaseQueryOptions,
-	): Promise<Result> {
+	): Promise<Array<Entity> | Entity> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
 			code: "NOT_IMPLEMENTED",
@@ -120,11 +132,11 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 	/**
 	 * ## NOT IMPLEMENTED!
 	 */
-	public update<Result = Array<Entity> | Entity>(
+	public update(
 		conditions: FindConditions<Entity>,
-		data: ClassType<Entity>,
+		data: SingleSaveData<Entity>,
 		options?: BaseQueryOptions,
-	): Promise<Result> {
+	): Promise<Array<Entity>> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
 			code: "NOT_IMPLEMENTED",
@@ -163,11 +175,11 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 	/**
 	 * ## NOT IMPLEMENTED!
 	 */
-	public upsert<Result = Array<Entity> | Entity>(
+	public upsert(
 		conditions: FindConditions<Entity>,
-		data: ClassType<Entity>,
+		data: SingleSaveData<Entity>,
 		options?: BaseQueryOptions,
-	): Promise<Result> {
+	): Promise<Array<Entity>> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
 			code: "NOT_IMPLEMENTED",

@@ -1,10 +1,8 @@
 import { BaseConnection } from "@techmmunity/symbiosis";
 import type { CustomClass } from "@techmmunity/symbiosis/lib/entity-manager/types/metadata-type";
 import { Repository } from "../repository";
-import type { ColumnExtraMetadata } from "../types/column-extra-metadata";
 import type { ExampleConnectionOptions } from "../types/connection-options";
-import type { EntityExtraMetadata } from "../types/entity-extra-metadata";
-import type { IndexExtraMetadata } from "../types/index-extra-metadata";
+import { ExtraMetadata } from "../types/extra-metadata";
 
 /**
  * Example type:
@@ -24,9 +22,7 @@ export type LibClientConfigType = any;
 
 export class Connection extends BaseConnection<
 	LibClientConfigType,
-	EntityExtraMetadata,
-	ColumnExtraMetadata,
-	IndexExtraMetadata
+	ExtraMetadata
 > {
 	private _connectionInstance: LibClientType;
 
@@ -35,18 +31,29 @@ export class Connection extends BaseConnection<
 	}
 
 	public constructor(options?: ExampleConnectionOptions) {
+		// Super("your-plugin-package-name", options);
 		super("base-project-symbiosis-plugin", options);
 	}
 
 	// eslint-disable-next-line require-await
 	public async connect() {
-		this._connectionInstance = {};
 		/*
 		 * Example:
 		 * this.connectionInstance = new DynamoDBClient(
 		 * 	this.options.databaseConnectionConfig || {},
 		 * );
 		 */
+		this._connectionInstance = {};
+
+		return this;
+	}
+
+	// eslint-disable-next-line require-await
+	public async validate() {
+		// Do some basic validation
+		this.basicValidate();
+
+		// Add plugin-specific validation here
 	}
 
 	// eslint-disable-next-line require-await
