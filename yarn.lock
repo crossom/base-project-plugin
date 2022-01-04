@@ -630,22 +630,17 @@
     chalk "^4.1.2"
     commander "^8.3.0"
 
-"@techmmunity/symbiosis@^0.0.29":
-  version "0.0.29"
-  resolved "https://registry.yarnpkg.com/@techmmunity/symbiosis/-/symbiosis-0.0.29.tgz#a2dea87eb0d0da77917dcdfe731414fbbde002c8"
-  integrity sha512-ptphZ/4OdqvwlwS8F3LWEx4acEoV8DKWYnbGBu+OpIGP/fgSiz3HnSe3nVgeHEU4CqcJOI6ZThUK95N66Va2MQ==
+"@techmmunity/symbiosis@^0.0.30":
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/@techmmunity/symbiosis/-/symbiosis-0.0.30.tgz#270e25a3d57dd8932795e0397b98c158db7a1810"
+  integrity sha512-VXKcsE9snSQEuyBJezjk+xyYZYcuKOeCx1QY+XHTin36Iv+cr4BGcxgLqUw3DiF1b99DYXemgMjWVedvvtTV7g==
   dependencies:
     "@techmmunity/utils" "^1.9.1"
     change-case "^4.1.2"
     dayjs "^1.10.6"
     tiny-glob "^0.2.9"
 
-"@techmmunity/utils@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@techmmunity/utils/-/utils-1.5.0.tgz#2a5014536fc553206ab1a1aec11bb4b78a58a922"
-  integrity sha512-kZWJsXfpm+c/3SOw7C5BiEpGeuIEIfIuGSIXszOqOah8ne6uXQPlf3V20f5EY3jX9aWZfOCz7L5SV80wHdng+g==
-
-"@techmmunity/utils@^1.9.1":
+"@techmmunity/utils@^1.5.0", "@techmmunity/utils@^1.9.1":
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/@techmmunity/utils/-/utils-1.9.1.tgz#945025ed19ccd6ba4343c8d6d403ae4e05570579"
   integrity sha512-tvfDi5dJJfLFYQDvSLF4Fv5x21eWTfMqdhDBT/sYZPeEbP/P1pqUyuePZoXTjWcE1uZzTALLT/X9JwxobflB6g==
