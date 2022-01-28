@@ -40,7 +40,7 @@
 		"@techmmunity/symbiosis-cli": "^0.0.4",
 		"@types/jest": "^27.0.3",
 		"@vercel/ncc": "^0.31.1",
-		"eslint": "^8.2.0",
+		"eslint": "^8.8.0",
 		"husky": "^7.0.4",
 		"jest": "^27.4.5",
 		"lint-staged": "^11.2.6",
