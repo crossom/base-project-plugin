@@ -1,4 +1,4 @@
-import { BaseConnectionOptions } from "@techmmunity/symbiosis";
+import type { BaseConnectionOptions } from "@techmmunity/symbiosis";
 
 /**
  * Example type:

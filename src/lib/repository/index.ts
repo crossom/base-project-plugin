@@ -7,21 +7,24 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
-import {
+import type {
 	BaseQueryOptions,
-	ClassType,
 	EntityManager,
 	FindConditions,
 	FindOneOptions,
 	FindOptions,
-	BaseRepository,
-	SymbiosisError,
 	Logger,
 	SaveData,
 	ArraySaveData,
 	SingleSaveData,
 } from "@techmmunity/symbiosis";
-import { ExtraMetadata } from "../types/extra-metadata";
+import {
+	ClassType,
+	BaseRepository,
+	SymbiosisError,
+} from "@techmmunity/symbiosis";
+
+import type { ExtraMetadata } from "../types/extra-metadata";
 
 export class Repository<Entity> extends BaseRepository<Entity> {
 	public constructor(
