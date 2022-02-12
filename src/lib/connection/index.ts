@@ -1,8 +1,10 @@
 import { BaseConnection } from "@techmmunity/symbiosis";
-import type { CustomClass } from "@techmmunity/symbiosis/lib/entity-manager/types/metadata-type";
+
 import { Repository } from "../repository";
+
 import type { ExampleConnectionOptions } from "../types/connection-options";
-import { ExtraMetadata } from "../types/extra-metadata";
+import type { ExtraMetadata } from "../types/extra-metadata";
+import type { CustomClass } from "@techmmunity/symbiosis/lib/entity-manager/types/metadata-type";
 
 /**
  * Example type:
