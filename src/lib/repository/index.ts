@@ -4,7 +4,6 @@
  * ---------------------------------------------
  */
 /* eslint-disable sonarjs/no-duplicate-string */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
 import type {
@@ -18,13 +17,20 @@ import type {
 	ArraySaveData,
 	SingleSaveData,
 } from "@techmmunity/symbiosis";
-import {
-	ClassType,
-	BaseRepository,
-	SymbiosisError,
-} from "@techmmunity/symbiosis";
+import { BaseRepository, SymbiosisError } from "@techmmunity/symbiosis";
 
 import type { ExtraMetadata } from "../types/extra-metadata";
+import type { CountOutput } from "../types/methods-outputs/count";
+import type { DeleteOutput } from "../types/methods-outputs/delete";
+import type { FindOutput } from "../types/methods-outputs/find";
+import type { FindOneOutput } from "../types/methods-outputs/find-one";
+import type { InsertOutput } from "../types/methods-outputs/insert";
+import type { PerformativeCountOutput } from "../types/methods-outputs/performative-count";
+import type { RecoverOutput } from "../types/methods-outputs/recover";
+import type { SaveOutput } from "../types/methods-outputs/save";
+import type { SoftDeleteOutput } from "../types/methods-outputs/soft-delete";
+import type { UpdateOutput } from "../types/methods-outputs/update";
+import type { UpsertOutput } from "../types/methods-outputs/upsert";
 
 export class Repository<Entity> extends BaseRepository<Entity> {
 	public constructor(
@@ -42,15 +48,15 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 	public save(
 		data: SingleSaveData<Entity>,
 		options?: BaseQueryOptions,
-	): Promise<Entity>;
+	): Promise<SaveOutput<Entity>>;
 	public save(
 		data: ArraySaveData<Entity>,
 		options?: BaseQueryOptions,
-	): Promise<Array<Entity>>;
+	): Promise<SaveOutput<Array<Entity>>>;
 	public save(
-		data: SaveData<Entity>,
-		options?: BaseQueryOptions,
-	): Promise<Array<Entity> | Entity> {
+		_data: SaveData<Entity>,
+		_options?: BaseQueryOptions,
+	): Promise<SaveOutput<Array<Entity> | Entity>> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
 			code: "NOT_IMPLEMENTED",
@@ -90,15 +96,15 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 	public insert(
 		data: SingleSaveData<Entity>,
 		options?: BaseQueryOptions,
-	): Promise<Entity>;
+	): Promise<InsertOutput<Entity>>;
 	public insert(
 		data: ArraySaveData<Entity>,
 		options?: BaseQueryOptions,
-	): Promise<Array<Entity>>;
+	): Promise<InsertOutput<Array<Entity>>>;
 	public insert(
-		data: SaveData<Entity>,
-		options?: BaseQueryOptions,
-	): Promise<Array<Entity> | Entity> {
+		_data: SaveData<Entity>,
+		_options?: BaseQueryOptions,
+	): Promise<InsertOutput<Array<Entity> | Entity>> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
 			code: "NOT_IMPLEMENTED",
@@ -136,10 +142,10 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 	 * ## NOT IMPLEMENTED!
 	 */
 	public update(
-		conditions: FindConditions<Entity>,
-		data: SingleSaveData<Entity>,
-		options?: BaseQueryOptions,
-	): Promise<Array<Entity>> {
+		_conditions: FindConditions<Entity>,
+		_data: SingleSaveData<Entity>,
+		_options?: BaseQueryOptions,
+	): Promise<UpdateOutput<Entity>> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
 			code: "NOT_IMPLEMENTED",
@@ -179,10 +185,10 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 	 * ## NOT IMPLEMENTED!
 	 */
 	public upsert(
-		conditions: FindConditions<Entity>,
-		data: SingleSaveData<Entity>,
-		options?: BaseQueryOptions,
-	): Promise<Array<Entity>> {
+		_conditions: FindConditions<Entity>,
+		_data: SingleSaveData<Entity>,
+		_options?: BaseQueryOptions,
+	): Promise<UpsertOutput<Entity>> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
 			code: "NOT_IMPLEMENTED",
@@ -222,9 +228,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 	 * ## NOT IMPLEMENTED!
 	 */
 	public find(
-		conditions: FindOptions<Entity>,
-		options?: BaseQueryOptions,
-	): Promise<Array<Entity>> {
+		_conditions: FindOptions<Entity>,
+		_options?: BaseQueryOptions,
+	): Promise<FindOutput<Entity>> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
 			code: "NOT_IMPLEMENTED",
@@ -263,9 +269,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 	 * ## NOT IMPLEMENTED!
 	 */
 	public findOne(
-		conditions: FindOneOptions<Entity>,
-		options?: BaseQueryOptions,
-	): Promise<Entity> {
+		_conditions: FindOneOptions<Entity>,
+		_options?: BaseQueryOptions,
+	): Promise<FindOneOutput<Entity>> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
 			code: "NOT_IMPLEMENTED",
@@ -304,9 +310,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 	 * ## NOT IMPLEMENTED!
 	 */
 	public delete(
-		where: FindConditions<Entity>,
-		options?: BaseQueryOptions,
-	): Promise<number> {
+		_where: FindConditions<Entity>,
+		_options?: BaseQueryOptions,
+	): Promise<DeleteOutput> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
 			code: "NOT_IMPLEMENTED",
@@ -345,9 +351,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 	 * ## NOT IMPLEMENTED!
 	 */
 	public softDelete(
-		where: FindConditions<Entity>,
-		options?: BaseQueryOptions,
-	): Promise<number> {
+		_where: FindConditions<Entity>,
+		_options?: BaseQueryOptions,
+	): Promise<SoftDeleteOutput> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
 			code: "NOT_IMPLEMENTED",
@@ -386,9 +392,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 	 * ## NOT IMPLEMENTED!
 	 */
 	public recover(
-		where: FindConditions<Entity>,
-		options?: BaseQueryOptions,
-	): Promise<number> {
+		_where: FindConditions<Entity>,
+		_options?: BaseQueryOptions,
+	): Promise<RecoverOutput> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
 			code: "NOT_IMPLEMENTED",
@@ -427,9 +433,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 	 * ## NOT IMPLEMENTED!
 	 */
 	public count(
-		where: FindConditions<Entity>,
-		options?: BaseQueryOptions,
-	): Promise<number> {
+		_where: FindConditions<Entity>,
+		_options?: BaseQueryOptions,
+	): Promise<CountOutput> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
 			code: "NOT_IMPLEMENTED",
@@ -468,9 +474,9 @@ export class Repository<Entity> extends BaseRepository<Entity> {
 	 * ## NOT IMPLEMENTED!
 	 */
 	public performativeCount(
-		where: FindConditions<Entity>,
-		options?: BaseQueryOptions,
-	): Promise<number> {
+		_where: FindConditions<Entity>,
+		_options?: BaseQueryOptions,
+	): Promise<PerformativeCountOutput> {
 		// Delete this after the method is implemented
 		throw new SymbiosisError({
 			code: "NOT_IMPLEMENTED",
