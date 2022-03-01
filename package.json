@@ -28,7 +28,7 @@
 		"@techmmunity/symbiosis": "^0.0.30",
 		"@techmmunity/symbiosis-cli": "^0.0.4",
 		"reflect-metadata": "^0.1.13",
-		"typescript": "^4.5.5"
+		"typescript": "^4.6.2"
 	},
 	"peerDependenciesMeta": {
 		"@techmmunity/symbiosis-cli": {
@@ -49,7 +49,7 @@
 		"reflect-metadata": "^0.1.13",
 		"ts-jest": "^27.1.3",
 		"ts-node": "^10.5.0",
-		"typescript": "^4.5.5"
+		"typescript": "^4.6.2"
 	},
 	"scripts": {
 		"prepare": "husky install",
