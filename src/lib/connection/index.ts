@@ -1,10 +1,10 @@
-import { BaseConnection } from "@techmmunity/symbiosis";
+import { BaseConnection } from "@thothom/core";
 
 import { Repository } from "../repository";
 
 import type { ExampleConnectionOptions } from "../types/connection-options";
 import type { ExtraMetadata } from "../types/extra-metadata";
-import type { CustomClass } from "@techmmunity/symbiosis/lib/entity-manager/types/metadata-type";
+import type { CustomClass } from "@thothom/core/lib/entity-manager/types/metadata-type";
 
 /**
  * Example type:
@@ -34,7 +34,7 @@ export class Connection extends BaseConnection<
 
 	public constructor(options?: ExampleConnectionOptions) {
 		// Super("your-plugin-package-name", options);
-		super("base-project-symbiosis-plugin", options);
+		super("base-project-plugin", options);
 	}
 
 	// eslint-disable-next-line require-await

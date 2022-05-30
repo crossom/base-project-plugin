@@ -1,18 +1,18 @@
 {
-	"name": "base-project-symbiosis-plugin",
+	"name": "base-project-plugin",
 	"version": "0.0.1",
 	"main": "index.js",
 	"types": "index.d.ts",
 	"license": "Apache-2.0",
 	"author": "Techmmunity",
-	"description": "Base project to plugins for @techmmunity/symbiosis",
-	"homepage": "https://github.com/techmmunity/base-project-symbiosis-plugin#readme",
+	"description": "Base project to plugins for @thothom/core",
+	"homepage": "https://github.com/thothom/base-project-plugin#readme",
 	"bugs": {
-		"url": "https://github.com/techmmunity/base-project-symbiosis-plugin/issues"
+		"url": "https://github.com/thothom/base-project-plugin/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/techmmunity/base-project-symbiosis-plugin.git"
+		"url": "git+https://github.com/thothom/base-project-plugin.git"
 	},
 	"keywords": [
 		"orm",
@@ -22,23 +22,23 @@
 		"database",
 		"data-mapper",
 		"object-mapper",
-		"techmmunity-symbiosis"
+		"thothom"
 	],
 	"peerDependencies": {
-		"@techmmunity/symbiosis": "^0.0.30",
-		"@techmmunity/symbiosis-cli": "^0.0.4",
+		"@thothom/cli": "^0.0.1",
+		"@thothom/core": "^0.0.1",
 		"reflect-metadata": "^0.1.13",
 		"typescript": "^4.5.5"
 	},
 	"peerDependenciesMeta": {
-		"@techmmunity/symbiosis-cli": {
+		"@thothom/cli": {
 			"optional": true
 		}
 	},
 	"devDependencies": {
 		"@techmmunity/eslint-config": "^5.2.2",
-		"@techmmunity/symbiosis": "^0.0.31",
-		"@techmmunity/symbiosis-cli": "^0.0.4",
+		"@thothom/cli": "^0.0.1",
+		"@thothom/core": "^0.0.1",
 		"@types/jest": "^27.4.0",
 		"@vercel/ncc": "^0.33.2",
 		"eslint": "^8.9.0",
