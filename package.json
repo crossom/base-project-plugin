@@ -36,7 +36,7 @@
 		}
 	},
 	"devDependencies": {
-		"@techmmunity/eslint-config": "^5.2.2",
+		"@techmmunity/eslint-config": "^5.2.4",
 		"@thothom/cli": "^0.0.1",
 		"@thothom/core": "^0.0.1",
 		"@types/jest": "^27.4.0",
